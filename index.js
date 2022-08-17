@@ -1,26 +1,31 @@
-
-//Create a function groupById(arr) that creates an object from it, with id as the key, and array items as values.
-//1
+// Array Method .reduce
+// Let’s say we received an array of users in the form [{id:..., name:..., age:... }].
 
 let users = [
-  {id: 'john', name: "John Smith", age: 20},
-  {id: 'ann', name: "Ann Smith", age: 24},
-  {id: 'pete', name: "Pete Peterson", age: 31},
+    { id: 'john', name: "John Smith", age: 20 },
+    { id: 'ann', name: "Ann Smith", age: 24 },
+    { id: 'pete', name: "Pete Peterson", age: 31 },
 ];
 
-function groupById(array) {
-  //write your code here
+
+function groupById(users) {
+    return users.reduce((usersById, user) => {
+        usersById[user.id] = user;
+        return usersById;
+    }, {})
 }
 
-let usersById= groupById(users)
+// object = {};
+// object[users[0].id] = users[0];
+// console.log(object);
+
+let usersById = groupById(users);
 console.log(usersById)
-
-/* expected output: 
-
+/* expected output:
 {
-  john: { id: 'john', name: 'John Smith', age: 20 },
-  ann: { id: 'ann', name: 'Ann Smith', age: 24 },
-  pete: { id: 'pete', name: 'Pete Peterson', age: 31 }
+  john: {id: 'john', name: "John Smith", age: 20},
+  ann: {id: 'ann', name: "Ann Smith", age: 24},
+  pete: {id: 'pete', name: "Pete Peterson", age: 31},
 }
-  
 */
+    // Please use array .reduce method in the solution.
